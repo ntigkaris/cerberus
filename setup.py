@@ -15,4 +15,4 @@ setup(name='cerberus',
       url='https://github.com/ntigkaris/cerberus',
       packages=['cerberus'],
       python_requires='>=3.9.2',
-      install_requires=['numpy','opencv-python'])
+      install_requires=['pywin32','numpy','opencv-python'])
