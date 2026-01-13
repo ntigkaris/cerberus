@@ -4,8 +4,8 @@ import numpy as np
 
 class cfg:
     timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
-    imgdir = '../data/snapshots'
-    logdir = '../data/logs'
+    imgdir = '../data/captions'
+    recdir = '../data/snapshots'
     tgtdir = 'Downloads'
     imgsize = 128
     kernel = np.array([[-1,-1,-1],
