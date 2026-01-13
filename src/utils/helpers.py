@@ -16,13 +16,13 @@ def takeSnapshot(imageSize,kernel):
     image = cv2.filter2D(src=image,
                         ddepth=-1,
                         kernel=kernel)
-    cv2.imwrite(filename=f'{cfg.imgdir}/IMG_{cfg.timestamp}.png',
+    cv2.imwrite(filename=f'{cfg.imgdir}/IMG{cfg.timestamp}.png',
                 img=image)
     pass
 
 def logContents(query):
     targetDirectory = pathlib.Path(f'{pathlib.Path.home()}\\{query}')
-    with open(file=f'{cfg.recdir}/LOG_{cfg.timestamp}.log',mode='w') as f:
+    with open(file=f'{cfg.recdir}/REC{cfg.timestamp}.txt',mode='w') as f:
         for path in targetDirectory.rglob(pattern='*'):
             f.write(f'{path.__str__()}\n')
     pass
