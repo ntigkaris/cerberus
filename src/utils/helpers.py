@@ -10,10 +10,9 @@ from conf.config import cfg
 def cleanUp(oldDir):
     os.makedirs(name=cfg.tmpdir,exist_ok=True)
     oldID = (datetime.date.today()-datetime.timedelta(days=1)).strftime('%Y%m%d')
-    for path in pathlib.Path(oldDir).rglob(pattern='*'):
-        if oldID in path.__str__():
-            os.rename(src=path.__str__(),
-                      dst=path.__str__().replace('\\','/')\
+    for path in pathlib.Path(oldDir).rglob(pattern=f'*{oldID}*'):
+        os.rename(src=path.__str__(),
+                  dst=path.__str__().replace('\\','/')\
                                         .replace(oldDir,cfg.tmpdir))
     if len(os.listdir(path=cfg.tmpdir)): shutil.make_archive(base_name=f'{oldDir}/{oldID}',
                                                              format='zip',
@@ -37,7 +36,7 @@ def takeCaption():
     cv2.imwrite(filename=f'{cfg.imgdir}/{cfg.timestamp}.png',
                 img=image)
     pass
-
+    
 def logHomeContents():
     cleanUp(cfg.recdir)
     with open(file=f'{cfg.recdir}/{cfg.timestamp}.txt',
