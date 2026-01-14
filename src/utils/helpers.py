@@ -1,10 +1,26 @@
+import datetime
 import pathlib
+import os
 
 import cv2
 
 from conf.config import cfg
 
+def cleanup(oldDir):
+    oldID = (datetime.date.today()-datetime.timedelta(days=1)).strftime('%Y%m%d')
+    for path in pathlib.Path(oldDir).rglob(pattern='*'):
+        if oldID in path.__str__():
+            os.rename(src=path.__str__(),
+                      dst=path.__str__().replace('\\','/')\
+                                        .replace(oldDir,cfg.tmpdir))
+    if len(os.listdir(path=cfg.tmpdir)): shutil.make_archive(base_name=f'{oldDir}/{oldID}',
+                                                             format='zip',
+                                                             root_dir=cfg.tmpdir)
+    shutil.rmtree(path=cfg.tmpdir)
+    pass
+
 def takeCaption():
+    cleanup(cfg.imgdir)
     caption = cv2.VideoCapture(index=0)
     _,image = caption.read()
     image = cv2.cvtColor(src=image,
@@ -16,12 +32,13 @@ def takeCaption():
     image = cv2.filter2D(src=image,
                         ddepth=-1,
                         kernel=cfg.kernel)
-    cv2.imwrite(filename=f'{cfg.imgdir}/{cfg.imgfilename}',
+    cv2.imwrite(filename=f'{cfg.imgdir}/{cfg.timestamp}.png',
                 img=image)
     pass
 
 def logHomeContents():
-    with open(file=f'{cfg.recdir}/{cfg.recfilename}',
+    cleanup(cfg.recdir)
+    with open(file=f'{cfg.recdir}/{cfg.timestamp}.txt',
               mode='w',
               encoding='utf8') as f:
         for path in pathlib.Path.home().rglob(pattern='*'):
