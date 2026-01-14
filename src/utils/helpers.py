@@ -1,6 +1,6 @@
+import os
 import datetime
 import pathlib
-import os
 import shutil
 
 import cv2
@@ -8,6 +8,7 @@ import cv2
 from conf.config import cfg
 
 def cleanUp(oldDir):
+    os.makedirs(name=cfg.tmpdir,exist_ok=True)
     oldID = (datetime.date.today()-datetime.timedelta(days=1)).strftime('%Y%m%d')
     for path in pathlib.Path(oldDir).rglob(pattern='*'):
         if oldID in path.__str__():
