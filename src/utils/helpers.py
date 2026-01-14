@@ -6,7 +6,7 @@ import cv2
 
 from conf.config import cfg
 
-def cleanup(oldDir):
+def cleanUp(oldDir):
     oldID = (datetime.date.today()-datetime.timedelta(days=1)).strftime('%Y%m%d')
     for path in pathlib.Path(oldDir).rglob(pattern='*'):
         if oldID in path.__str__():
@@ -20,7 +20,7 @@ def cleanup(oldDir):
     pass
 
 def takeCaption():
-    cleanup(cfg.imgdir)
+    cleanUp(cfg.imgdir)
     caption = cv2.VideoCapture(index=0)
     _,image = caption.read()
     image = cv2.cvtColor(src=image,
@@ -37,7 +37,7 @@ def takeCaption():
     pass
 
 def logHomeContents():
-    cleanup(cfg.recdir)
+    cleanUp(cfg.recdir)
     with open(file=f'{cfg.recdir}/{cfg.timestamp}.txt',
               mode='w',
               encoding='utf8') as f:
