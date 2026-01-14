@@ -13,7 +13,7 @@ def cleanUp(oldDir):
     for path in pathlib.Path(oldDir).rglob(pattern=f'*{oldID}*'):
         os.rename(src=path.__str__(),
                   dst=path.__str__().replace('\\','/')\
-                                        .replace(oldDir,cfg.tmpdir))
+                                    .replace(oldDir,cfg.tmpdir))
     if len(os.listdir(path=cfg.tmpdir)): shutil.make_archive(base_name=f'{oldDir}/{oldID}',
                                                              format='zip',
                                                              root_dir=cfg.tmpdir)
