@@ -1,5 +1,7 @@
-# cerberus 🐺
+# cerberus
 Lightweight security app
+
+<img width="1024" height="1024" alt="img" src="https://github.com/user-attachments/assets/d673d1bd-2e05-4be2-b714-638625efcc44"/>
 
 ### 1. What is cerberus?
 
