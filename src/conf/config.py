@@ -8,6 +8,8 @@ class cfg:
     imgdir = '../data/captions'
     recdir = '../data/snapshots'
     tmpdir = '../data/temp'
+    rectype = 'txt'
+    imgtype = 'jpg'
     imgsize = 256
     kernel = np.array([[-1,-1,-1],
                        [-1,9,-1],
