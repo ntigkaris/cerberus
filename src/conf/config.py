@@ -21,7 +21,7 @@ class cfg:
     Core configuration class
     """
     timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
-    cleanup = 30
+    cleanup = 7
     imgdir = '../data/captions'
     recdir = '../data/snapshots'
     tmpdir = '../data/temp'
