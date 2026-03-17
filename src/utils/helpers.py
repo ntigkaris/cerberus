@@ -54,7 +54,7 @@ def takeCaption():
     image = cv2.filter2D(src=image,
                          ddepth=-1,
                          kernel=cfg.kernel)
-    cv2.imwrite(filename=f'{cfg.imgdir}/{cfg.timestamp}.{cfg.imgtype}',
+    cv2.imwrite(filename=f'{cfg.imgdir}/{cfg.filename}.{cfg.imgtype}',
                 img=image)
     pass
 
@@ -69,7 +69,7 @@ def logHomeContents():
     """
     cleanUp(oldDir=cfg.recdir,
             fileType=cfg.rectype)
-    with open(file=f'{cfg.recdir}/{cfg.timestamp}.{cfg.rectype}',
+    with open(file=f'{cfg.recdir}/{cfg.filename}.{cfg.rectype}',
               mode='w',
               encoding='utf8') as f:
         for path in pathlib.Path.home().rglob(pattern='*'):
