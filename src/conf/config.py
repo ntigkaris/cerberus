@@ -3,6 +3,21 @@ from datetime import datetime
 import numpy as np
 
 class cfg:
+    """
+    Attributes:
+    timestamp
+    cleanup
+    imgdir
+    recdir
+    tmpdir
+    rectype
+    imgtype
+    imgsize
+    kernel
+    
+    Description:
+    Core configuration class
+    """
     timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
     cleanup = 30
     imgdir = '../data/captions'
