@@ -10,7 +10,7 @@ Cerberus is a Python-based security solution developed for *Windows Vista* and s
 
 ### Configuration
 
-The following parameters are available for customization, allowing users to tailor the system behavior to their specific requirements
+The following parameters are available for customization, allowing users to tailor the system behavior to their specific requirements:
 
 | Parameters | Description |
 | --- | --- |
@@ -29,6 +29,7 @@ For frequent users, we recommend the following setup:
 | Parameter | Value |
 | --- | --- |
 | cleanup | 7 |
+| imgtype | jpg |
 | imgsize | 256 |
 
 For users logging into their devices sparingly, we instead suggest using:
@@ -36,6 +37,7 @@ For users logging into their devices sparingly, we instead suggest using:
 | Parameter | Value |
 | --- | --- |
 | cleanup | 30 |
+| imgtype | jpg |
 | imgsize | 512 |
 
 These combinations provide a balance between efficient memory management and output quality, based on usage patterns.
