@@ -8,6 +8,16 @@ import cv2
 from conf.config import cfg
 
 def cleanUp(oldDir,fileType):
+    """
+    Parameters:
+    oldDir : str; absolute or relative directory path
+    fileType: str; generated file extension
+    
+    Returns:
+    
+    Description:
+    Takes an absolute or relative directory path and archives past created files, grouping them by creation date. The retention period is specified by configuration parameter cfg.cleanup
+    """
     oldIds = [(datetime.date.today()-datetime.timedelta(days=i+1)).strftime('%Y%m%d') for i in range(cfg.cleanup)]
     for id in oldIds:
         os.makedirs(name=cfg.tmpdir,exist_ok=True)
@@ -22,6 +32,14 @@ def cleanUp(oldDir,fileType):
     pass
 
 def takeCaption():
+    """
+    Parameters:
+    
+    Returns:
+    
+    Description:
+    Applies directory clean-up. Captures an image using the device's camera. Resizes image to size specified by cfg.imgsize. Applies a kernel transformation specified by cfg.kernel. Image type is specified by cfg.imgtype
+    """
     cleanUp(oldDir=cfg.imgdir,
             fileType=cfg.imgtype)
     caption = cv2.VideoCapture(index=0)
@@ -41,6 +59,14 @@ def takeCaption():
     pass
 
 def logHomeContents():
+    """
+    Parameters:
+    
+    Returns:
+    
+    Description:
+    Applies directory clean-up. Writes Home directory contents into a file, whose type is specified by cfg.rectype
+    """
     cleanUp(oldDir=cfg.recdir,
             fileType=cfg.rectype)
     with open(file=f'{cfg.recdir}/{cfg.timestamp}.{cfg.rectype}',
