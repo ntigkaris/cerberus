@@ -14,6 +14,8 @@ class cfg:
     imgtype
     imgsize
     kernel
+
+    Methods:
     
     Description:
     Core configuration class
