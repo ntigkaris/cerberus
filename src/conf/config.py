@@ -5,7 +5,7 @@ import numpy as np
 class cfg:
     """
     Attributes:
-    timestamp
+    filename
     cleanup
     imgdir
     recdir
@@ -20,7 +20,7 @@ class cfg:
     Description:
     Core configuration class
     """
-    timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+    filename = datetime.now().strftime('%Y%m%d%H%M%S')
     cleanup = 7
     imgdir = '../data/captions'
     recdir = '../data/snapshots'
