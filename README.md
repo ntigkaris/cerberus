@@ -9,4 +9,4 @@ Cerberus is a Python-based security solution developed for *Windows Vista* and s
 
 ### 2. How to install
 
-### What makes cerberus truly lightweight?
+### 3. What makes cerberus truly lightweight?
